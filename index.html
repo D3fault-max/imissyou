@@ -24,7 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* Start Screen Overlay */
         #start-screen {
             position: fixed;
             top: 0;
@@ -61,7 +60,7 @@
             max-width: 400px;
             width: 100%;
             z-index: 1;
-            display: none; /* Hidden until start button is clicked */
+            display: none;
         }
 
         .sfml-window {
@@ -100,14 +99,8 @@
             width: 100%;
             line-height: 1.4;
             padding: 10px;
-            outline: none;
             box-sizing: border-box;
             margin-bottom: 30px;
-        }
-
-        .handwritten-text:focus {
-            border: 1px dashed rgba(255, 255, 255, 0.3);
-            border-radius: 6px;
         }
 
         .buttons-container {
@@ -148,7 +141,6 @@
 </head>
 <body>
 
-    <!-- Initial Start Screen -->
     <div id="start-screen">
         <button id="start-btn">Click to Open</button>
     </div>
@@ -157,13 +149,12 @@
         <div class="sfml-window">
             <div class="title-bar">I miss you...</div>
             <div class="video-container">
-                <!-- Removed autoplay and muted. Video plays via JavaScript -->
                 <video id="main-video" src="i miss you.mp4" loop playsinline></video>
             </div>
         </div>
 
-        <div class="handwritten-text" contenteditable="true">
-            Do you forgive me?
+        <div class="handwritten-text">
+            ako pa ba??
         </div>
 
         <div class="buttons-container">
@@ -181,14 +172,12 @@
         const btnNo = document.getElementById('btn-no');
         const btnYes = document.getElementById('btn-yes');
 
-        // Handle the Start button click
         startBtn.addEventListener('click', () => {
             startScreen.style.display = 'none';
             mainContent.style.display = 'flex';
-            video.play(); // Video now plays with sound safely
+            video.play();
         });
 
-        // Function to move the 'No' button
         function moveButton() {
             btnNo.style.position = 'fixed';
             
@@ -208,7 +197,7 @@
         btnNo.addEventListener('touchstart', moveButton);
 
         btnYes.addEventListener('click', () => {
-            alert("Yay! ❤️");
+            window.location.href = "https://www.facebook.com/"; 
         });
     </script>
 </body>
